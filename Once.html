@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>LOG_000_GENESIS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<style>
+:root {
+  --bg: #050505;
+  --accent: #ff0000;
+  --ink: #9a9a9a;
+  --highlight: #eee;
+  --dim: #1a1a1a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: crosshair;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Georgia, serif;
+  overflow-x: hidden;
+  padding: 40px 20px;
+}
+
+/* NOISE LAYER */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/5/5c/Rough_white_noise.png");
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+/* LAYOUT */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 40px;
+  align-items: start;
+}
+
+.main-panel {
+  border: 1px solid var(--dim);
+  background: #000;
+  min-height: 90vh;
+  position: relative;
+}
+
+/* HEADER */
+.panel-header {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--dim);
+  font-family: monospace;
+  font-size: 10px;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* CONTENT */
+.content-scroll {
+  padding: 40px 32px;
+  max-width: 70ch;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+/* INTRO SYSTEM */
+#intro {
+  position: absolute;
+  inset: 0;
+  background: black;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace;
+  overflow: hidden;
+}
+
+.intro-text {
+  position: absolute;
+  color: #555;
+  letter-spacing: 2px;
+  opacity: 0;
+}
+
+.zoom-out {
+  animation: appear 2s forwards;
+}
+
+.zoom-in {
+  animation: appear 2s 4.5s forwards;
+}
+
+#intro {
+  animation: introFade 8s forwards;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: scale(1.1); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes introFade {
+  0%, 80% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
+
+/* VERSE SYSTEM */
+h1 {
+  font-family: monospace;
+  text-align: center;
+  letter-spacing: 10px;
+  color: var(--highlight);
+  margin-bottom: 40px;
+}
+
+.kicker {
+  text-align: center;
+  color: var(--accent);
+  font-family: monospace;
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+
+/* VERSE ANIMATION */
+.verse {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 1s ease;
+  margin-bottom: 20px;
+}
+
+.verse.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.v-num {
+  color: var(--accent);
+  font-family: monospace;
+  font-size: 10px;
+  margin-right: 10px;
+}
+
+/* GRAPHICS */
+.graphic-block {
+  height: 160px;
+  margin: 30px 0;
+  border: 1px solid var(--dim);
+  background: repeating-linear-gradient(
+    45deg,
+    #000,
+    #000 10px,
+    #080808 10px,
+    #080808 11px
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace;
+  font-size: 10px;
+  color: #222;
+  animation: flicker 4s infinite;
+}
+
+@keyframes flicker {
+  0%,100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+/* TOKEN */
+.token-empty {
+  text-align: center;
+  font-size: 24px;
+  color: var(--highlight);
+  margin-top: 40px;
+}
+
+/* SIDEBAR */
+aside {
+  padding: 25px;
+  border: 1px solid var(--dim);
+  background: #030303;
+  font-family: monospace;
+  position: sticky;
+  top: 20px;
+}
+
+.btn {
+  display: block;
+  margin-top: 15px;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid var(--dim);
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 11px;
+}
+
+.btn:hover {
+  color: var(--highlight);
+  border-color: var(--highlight);
+}
+
+.btn.solid {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="main-panel">
+
+    <!-- INTRO -->
+    <div id="intro">
+      <div class="intro-text zoom-out">Zoom out [five seconds, fade out]</div>
+      <div class="intro-text zoom-in">Now zoom back in</div>
+    </div>
+
+    <div class="panel-header">
+      <span>LOG_TYPE: GENESIS</span>
+      <span>ENCRYPTION: NONE</span>
+    </div>
+
+    <div class="content-scroll">
+
+      <div class="kicker">空的</div>
+      <h1>GENESIS OF THE BLOCKCHAIN</h1>
+
+      <div class="verse"><span class="v-num">1</span>In the beginning, Satoshi created Bitcoin...</div>
+
+      <div class="verse"><span class="v-num">2</span>The Miners emerged from shadow...</div>
+
+      <div class="graphic-block">FAILED_DOUBLE_BOTTOM_PATTERN.VOID</div>
+
+      <div class="verse"><span class="v-num">3</span>The Custodians of Order formed...</div>
+
+      <div class="verse"><span class="v-num">4</span>The Traders were born from greed...</div>
+
+      <div class="graphic-block">WORSHIP_THE_CANDLE.jpg_CORRUPT</div>
+
+      <div class="verse"><span class="v-num">5</span>The DEGEN rose...</div>
+
+      <div class="verse"><span class="v-num">6</span>Volatility became scripture...</div>
+
+      <div class="verse"><span class="v-num">7</span>HODL. Buy the dip. Diamond hands...</div>
+
+      <div class="graphic-block">DIAMOND_HANDS_SCAN.LOG</div>
+
+      <div class="verse"><span class="v-num">8</span>The illusion began to decay...</div>
+
+      <div class="verse"><span class="v-num">9</span>Only numbers remained...</div>
+
+      <div class="verse"><span class="v-num">10</span>Still hands. Still nothing.</div>
+
+      <div class="token-empty">$EMPTY.</div>
+
+      <div class="graphic-block" style="border:none;">END_OF_FILE.NULL</div>
+
+    </div>
+  </div>
+
+  <aside>
+    <div style="color:var(--accent); margin-bottom:10px;">EMPTY / AUTOPSY</div>
+
+    <p style="font-size:12px; line-height:1.5;">
+      EmptyCoin / ɛmti kɔɪn<br>
+      defn. antimeme
+    </p>
+
+    <p style="font-size:11px; color:#444; margin-top:10px;">
+      Belief systems collapse under liquidity pressure.
+    </p>
+
+    <a class="btn" href="resist.html">Resist the Call</a>
+    <a class="btn solid" href="embrace.html">Embrace the Futility</a>
+  </aside>
+
+</div>
+
+<script>
+/* INTRO CONTROL */
+window.addEventListener("load", () => {
+  const verses = document.querySelectorAll(".verse");
+
+  // stagger reveal
+  setTimeout(() => {
+    verses.forEach((v, i) => {
+      setTimeout(() => {
+        v.classList.add("show");
+      }, i * 250);
+    });
+  }, 5500);
+
+  // remove intro
+  setTimeout(() => {
+    document.getElementById("intro").remove();
+  }, 8000);
+});
+</script>
+
+</body>
+</html>
